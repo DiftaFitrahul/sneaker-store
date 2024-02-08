@@ -1,6 +1,9 @@
 <resources>
+
+    <!--  App Name  -->
     <string name="app_name">Sneaker Shop</string>
 
+    <!-- Define Text For Auth Page -->
     <string name="title_sign_in">Hello Again!</string>
     <string name="title_sign_up">Register Account</string>
     <string name="subtitle_auth">Fill Your Detail or Continue with Social Media</string>
@@ -15,5 +18,28 @@
     <string name="label_create_account">Create Account</string>
     <string name="label_already_have_account">Already Have Account?</string>
     <string name="label_login">Login</string>
+    <string name="placeholder_name">xxxxxxxxx</string>
+    <string name="placeholder_email">xyz@gmail.com</string>
+    <string name="placeholder_password">password</string>
+
+    <!--  Define Text For Recover Page  -->
+    <string name="title_recover_page">Forgot Password</string>
+    <string name="subtitle_recover_page">Enter Your Email Account To Reset Your Password</string>
+    <string name="label_button_recover_page">Reset Password</string>
+    <string name="title_dialog_recover_page">Check Your Email></string>
+    <string name="subtitle_dialog_recover_page">We Have Send Password Recovery Code In Your Email</string>
+
+    <!--  Define Text For OTP Verification Page  -->
+    <string name="title_OTP_verification_page">OTP Verification</string>
+    <string name="subtitle_OTP_verification_page">Please Check Your Email To See The Verification Code</string>
+    <string name="label_OTP_code_field">OTP Code</string>
+    <string name="label_button_OTP_verification_page">Verify</string>
+    <string name="label_resend_code">Resend code to</string>
+    <string name="title_success_dialog_OTP_verification_page">Success Reset Password</string>
+    <string name="subtitle_success_dialog_OTP_verification_page">Your Password successfully change!!</string>
+    <string name="title_failed_dialog_OTP_verification_page">Failed Reset Password</string>
+    <string name="subtitle_failed_dialog_OTP_verification_page">Something wrong happen, Try Again!!</string>
+
+
 
 </resources>
