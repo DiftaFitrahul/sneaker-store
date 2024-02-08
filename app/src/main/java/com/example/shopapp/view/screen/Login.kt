@@ -1,8 +1,11 @@
 package com.example.shopapp.view.screen
 
+import android.util.Log
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.displayCutoutPadding
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
@@ -32,6 +36,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -48,6 +54,8 @@ import com.example.shopapp.view.component.DefaultAppTextField
 
 @Composable
 fun LoginScreen(modifier: Modifier = Modifier) {
+
+
     Scaffold(
         modifier = modifier.fillMaxSize()
     ) {
@@ -64,7 +72,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 text = stringResource(id = R.string.title_sign_in),
                 style = MaterialTheme.typography.headlineLarge
             )
-            Divider(modifier = Modifier.height(10.dp), color = Color.Transparent)
+            Divider(modifier = Modifier.height(5.dp), color = Color.Transparent)
             Text(
                 text = stringResource(id = R.string.subtitle_auth),
                 style = MaterialTheme.typography.bodyLarge.copy(
@@ -137,15 +145,45 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 text = stringResource(id = R.string.label_button_sign_in),
                 onClick = { /*TODO*/ })
             Divider(color = Color.Transparent, modifier = Modifier.height(24.dp))
-            SignInWithGoogle (onClick = {})
+            SignInWithGoogle(onClick = {})
 
-            Text(text = "Makan nasu")
+            Divider(
+                color = Color.Transparent,
+                modifier = Modifier.weight(1f)
+            )
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                modifier = Modifier
+                    .padding(bottom = 40.dp)
+                    .fillMaxWidth()
+
+            ) {
+                Text(
+                    text = "${stringResource(id = R.string.label_new_user)} ",
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium,
+                        color = LightGrey
+                    ),
+                    softWrap = true
+                )
+                ClickableText(
+                    text = AnnotatedString(text = stringResource(id = R.string.label_create_account)),
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Medium,
+
+                        ),
+                    onClick = {
+
+                    })
+            }
         }
     }
 }
 
 @Composable
-fun SignInWithGoogle(modifier: Modifier = Modifier, onClick: ()-> Unit){
+fun SignInWithGoogle(modifier: Modifier = Modifier, onClick: () -> Unit) {
     Button(
 
         onClick = onClick,
@@ -158,16 +196,22 @@ fun SignInWithGoogle(modifier: Modifier = Modifier, onClick: ()-> Unit){
         modifier = modifier.fillMaxWidth()
     ) {
         Row {
-            Image(painter = painterResource(id = R.drawable.icons8_google_96), contentDescription = "" )
+            Image(
+                painter = painterResource(id = R.drawable.icons8_google_96),
+                contentDescription = ""
+            )
         }
         Divider(
             color = Color.Transparent,
             modifier = Modifier.width(12.dp)
         )
-        Text(text = stringResource(id = R.string.label_button_google), style = MaterialTheme.typography.headlineSmall.copy(
-            fontSize = 14.sp,
-            color = Color.Black
-        ))
+        Text(
+            text = stringResource(id = R.string.label_button_google),
+            style = MaterialTheme.typography.headlineSmall.copy(
+                fontSize = 14.sp,
+                color = Color.Black
+            )
+        )
     }
 }
 
