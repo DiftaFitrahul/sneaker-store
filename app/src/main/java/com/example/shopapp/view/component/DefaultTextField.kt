@@ -10,14 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldColors
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -32,7 +27,6 @@ import androidx.compose.ui.unit.sp
 import com.example.shopapp.ui.theme.Grey
 import com.example.shopapp.ui.theme.LightGrey
 import com.example.shopapp.ui.theme.ShopAppTheme
-import com.example.shopapp.view.screen.LoginScreen
 
 @Composable
 fun DefaultAppTextField(
@@ -65,7 +59,9 @@ fun DefaultAppTextField(
             placeholder = {
                 Text(
                     text = placeHolder, style = MaterialTheme.typography.bodyMedium.copy(
-                        fontSize = 14.sp, color = Grey
+                        fontSize = 14.sp, color = Grey.copy(
+                            alpha = 0.7f
+                        )
                     )
                 )
             },
@@ -105,14 +101,3 @@ fun DefaultAppTextField(
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ShopAppTheme {
-        Box(
-            modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
-        ) {
-            DefaultAppTextField(value = "", onValueChange = {})
-        }
-    }
-}

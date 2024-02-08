@@ -20,7 +20,7 @@
     <string name="label_login">Login</string>
     <string name="placeholder_name">xxxxxxxxx</string>
     <string name="placeholder_email">xyz@gmail.com</string>
-    <string name="placeholder_password">password</string>
+    <string name="placeholder_password">••••••••••</string>
 
     <!--  Define Text For Recover Page  -->
     <string name="title_recover_page">Forgot Password</string>
