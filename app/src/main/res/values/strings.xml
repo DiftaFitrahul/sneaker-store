@@ -26,7 +26,7 @@
     <string name="title_recover_page">Forgot Password</string>
     <string name="subtitle_recover_page">Enter Your Email Account To Reset Your Password</string>
     <string name="label_button_recover_page">Reset Password</string>
-    <string name="title_dialog_recover_page">Check Your Email></string>
+    <string name="title_dialog_recover_page">Check Your Email</string>
     <string name="subtitle_dialog_recover_page">We Have Send Password Recovery Code In Your Email</string>
 
     <!--  Define Text For OTP Verification Page  -->
