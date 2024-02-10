@@ -1,28 +1,18 @@
 package com.example.shopapp.view.screen
 
-import android.util.Log
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.displayCutoutPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,7 +24,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -43,33 +32,27 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.shopapp.Greeting
 import com.example.shopapp.R
-import com.example.shopapp.ui.theme.Blue
 import com.example.shopapp.ui.theme.Grey
 import com.example.shopapp.ui.theme.LightGrey
-import com.example.shopapp.ui.theme.ShopAppTheme
 import com.example.shopapp.view.component.DefaultAppButton
 import com.example.shopapp.view.component.DefaultAppTextField
 
+@Preview
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
-
-
+fun RegisterScreen(modifier: Modifier = Modifier) {
     Scaffold(
         modifier = modifier.fillMaxSize()
     ) {
         Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .padding(it)
                 .fillMaxSize()
-                .padding(top = 60.dp, start = 18.dp, end = 18.dp),
-
-            horizontalAlignment = Alignment.CenterHorizontally
-
+                .padding(top = 60.dp, start = 18.dp, end = 18.dp)
         ) {
             Text(
-                text = stringResource(id = R.string.title_sign_in),
+                text = stringResource(id = R.string.title_sign_up),
                 style = MaterialTheme.typography.headlineLarge
             )
             Divider(modifier = Modifier.height(5.dp), color = Color.Transparent)
@@ -82,6 +65,21 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.padding(horizontal = 40.dp)
             )
             Divider(color = Color.Transparent, modifier = Modifier.height(38.dp))
+            DefaultAppTextField(
+                modifier = Modifier.fillMaxWidth(),
+                label = stringResource(id = R.string.label_name_auth_field),
+                isError = false,
+                value = "",
+                placeHolder = stringResource(id = R.string.placeholder_name),
+                onValueChange = {},
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next
+                )
+            )
+            Divider(
+                color = Color.Transparent,
+                modifier = Modifier.height(30.dp)
+            )
             DefaultAppTextField(
                 modifier = Modifier.fillMaxWidth(),
                 label = stringResource(id = R.string.label_email_auth_field),
@@ -142,7 +140,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 modifier = Modifier.height(10.dp)
             )
             DefaultAppButton(
-                text = stringResource(id = R.string.label_button_sign_in),
+                text = stringResource(id = R.string.label_button_sign_up),
                 onClick = { /*TODO*/ })
             Divider(color = Color.Transparent, modifier = Modifier.height(24.dp))
             SignInWithGoogle(onClick = {})
@@ -159,7 +157,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
 
             ) {
                 Text(
-                    text = "${stringResource(id = R.string.label_new_user)} ",
+                    text = "${stringResource(id = R.string.label_already_have_account)} ",
                     style = MaterialTheme.typography.headlineSmall.copy(
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Medium,
@@ -168,7 +166,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                     softWrap = true
                 )
                 ClickableText(
-                    text = AnnotatedString(text = stringResource(id = R.string.label_create_account)),
+                    text = AnnotatedString(text = stringResource(id = R.string.label_login)),
                     style = MaterialTheme.typography.headlineSmall.copy(
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Medium,
@@ -178,48 +176,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
 
                     })
             }
+
         }
-    }
-}
-
-@Composable
-fun SignInWithGoogle(modifier: Modifier = Modifier, onClick: () -> Unit) {
-    Button(
-
-        onClick = onClick,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = LightGrey.copy(
-                alpha = 0.1f
-            )
-        ),
-        shape = RoundedCornerShape(14.dp),
-        modifier = modifier.fillMaxWidth()
-    ) {
-        Row {
-            Image(
-                painter = painterResource(id = R.drawable.icons8_google_96),
-                contentDescription = ""
-            )
-        }
-        Divider(
-            color = Color.Transparent,
-            modifier = Modifier.width(12.dp)
-        )
-        Text(
-            text = stringResource(id = R.string.label_button_google),
-            style = MaterialTheme.typography.headlineSmall.copy(
-                fontSize = 14.sp,
-                color = Color.Black
-            )
-        )
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ShopAppTheme {
-        LoginScreen()
     }
 }
