@@ -4,13 +4,16 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material3.Divider
@@ -35,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import com.example.shopapp.R
 import com.example.shopapp.ui.theme.Grey
 import com.example.shopapp.ui.theme.LightGrey
+import com.example.shopapp.view.component.DefaultAppBackButton
 import com.example.shopapp.view.component.DefaultAppButton
 import com.example.shopapp.view.component.DefaultAppTextField
 
@@ -42,6 +46,13 @@ import com.example.shopapp.view.component.DefaultAppTextField
 @Composable
 fun RegisterScreen(modifier: Modifier = Modifier) {
     Scaffold(
+        topBar = {
+            Box (modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 18.dp, top = 18.dp), contentAlignment = Alignment.CenterStart){
+                DefaultAppBackButton (onClick = {})
+            }
+        },
         modifier = modifier.fillMaxSize()
     ) {
         Column(
@@ -49,8 +60,11 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
             modifier = Modifier
                 .padding(it)
                 .fillMaxSize()
-                .padding(top = 60.dp, start = 18.dp, end = 18.dp)
+                .verticalScroll(rememberScrollState())
+                .padding(top = 10.dp, start = 18.dp, end = 18.dp)
+
         ) {
+
             Text(
                 text = stringResource(id = R.string.title_sign_up),
                 style = MaterialTheme.typography.headlineLarge
@@ -64,7 +78,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 40.dp)
             )
-            Divider(color = Color.Transparent, modifier = Modifier.height(38.dp))
+            Divider(color = Color.Transparent, modifier = Modifier.height(15.dp))
             DefaultAppTextField(
                 modifier = Modifier.fillMaxWidth(),
                 label = stringResource(id = R.string.label_name_auth_field),
@@ -78,7 +92,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
             )
             Divider(
                 color = Color.Transparent,
-                modifier = Modifier.height(30.dp)
+                modifier = Modifier.height(20.dp)
             )
             DefaultAppTextField(
                 modifier = Modifier.fillMaxWidth(),
@@ -93,7 +107,7 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
             )
             Divider(
                 color = Color.Transparent,
-                modifier = Modifier.height(30.dp)
+                modifier = Modifier.height(20.dp)
             )
             DefaultAppTextField(
                 modifier = Modifier.fillMaxWidth(),

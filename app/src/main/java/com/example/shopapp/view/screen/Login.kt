@@ -81,7 +81,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(horizontal = 40.dp)
             )
-            Divider(color = Color.Transparent, modifier = Modifier.height(38.dp))
+            Divider(color = Color.Transparent, modifier = Modifier.height(30.dp))
             DefaultAppTextField(
                 modifier = Modifier.fillMaxWidth(),
                 label = stringResource(id = R.string.label_email_auth_field),
@@ -95,7 +95,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
             )
             Divider(
                 color = Color.Transparent,
-                modifier = Modifier.height(30.dp)
+                modifier = Modifier.height(20.dp)
             )
             DefaultAppTextField(
                 modifier = Modifier.fillMaxWidth(),
