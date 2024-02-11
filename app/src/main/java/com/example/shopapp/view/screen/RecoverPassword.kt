@@ -43,13 +43,15 @@ import com.example.shopapp.view.component.DefaultAppTextField
 
 @Preview
 @Composable
-fun RecoverPassword(modifier: Modifier = Modifier) {
+fun RecoverPassword(modifier: Modifier = Modifier,
+                    onBackButton: ()-> Unit={}
+                    ) {
     Scaffold(
         topBar = {
             Box (modifier = Modifier
                 .fillMaxWidth()
                 .padding(start = 18.dp, top = 18.dp), contentAlignment = Alignment.CenterStart){
-                DefaultAppBackButton (onClick = {})}
+                DefaultAppBackButton (onClick = onBackButton)}
         },
         modifier = modifier.fillMaxSize()) {
         Column(
@@ -88,7 +90,7 @@ fun RecoverPassword(modifier: Modifier = Modifier) {
             DefaultAppButton(
                 text = stringResource(id = R.string.label_button_sign_in),
                 onClick = { /*TODO*/ })
-            DialogResult()
+//            DialogResult()
         }
     }
 }

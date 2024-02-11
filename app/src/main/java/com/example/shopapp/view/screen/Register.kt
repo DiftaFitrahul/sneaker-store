@@ -44,13 +44,17 @@ import com.example.shopapp.view.component.DefaultAppTextField
 
 @Preview
 @Composable
-fun RegisterScreen(modifier: Modifier = Modifier) {
+fun RegisterScreen(modifier: Modifier = Modifier,
+                   onBackButton: ()->Unit = {},
+                   onLoginAccount: (Int) -> Unit = {}) {
     Scaffold(
         topBar = {
-            Box (modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 18.dp, top = 18.dp), contentAlignment = Alignment.CenterStart){
-                DefaultAppBackButton (onClick = {})
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 18.dp, top = 18.dp), contentAlignment = Alignment.CenterStart
+            ) {
+                DefaultAppBackButton(onClick = onBackButton)
             }
         },
         modifier = modifier.fillMaxSize()
@@ -186,9 +190,8 @@ fun RegisterScreen(modifier: Modifier = Modifier) {
                         fontWeight = FontWeight.Medium,
 
                         ),
-                    onClick = {
-
-                    })
+                    onClick = onLoginAccount
+                )
             }
 
         }

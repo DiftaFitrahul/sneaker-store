@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.shopapp.ui.theme.ShopAppTheme
 import com.example.shopapp.view.screen.LoginScreen
+import com.example.shopapp.view.screen.MainApp
 import com.example.shopapp.view.screen.RecoverPassword
 import com.example.shopapp.view.screen.RegisterScreen
 
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                   RecoverPassword()
+                   MainApp()
                 }
             }
         }

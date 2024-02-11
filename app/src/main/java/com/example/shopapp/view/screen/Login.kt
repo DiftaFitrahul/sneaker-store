@@ -53,7 +53,9 @@ import com.example.shopapp.view.component.DefaultAppButton
 import com.example.shopapp.view.component.DefaultAppTextField
 
 @Composable
-fun LoginScreen(modifier: Modifier = Modifier) {
+fun LoginScreen(modifier: Modifier = Modifier,
+                onRecoverPassword: ()-> Unit={},
+                onCreateNewAccount: (Int) -> Unit = {}) {
 
 
     Scaffold(
@@ -126,7 +128,7 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                 contentAlignment = Alignment.CenterEnd
             ) {
                 TextButton(
-                    onClick = { /*TODO*/ },
+                    onClick = onRecoverPassword,
 
                     ) {
                     Text(
@@ -174,9 +176,8 @@ fun LoginScreen(modifier: Modifier = Modifier) {
                         fontWeight = FontWeight.Medium,
 
                         ),
-                    onClick = {
-
-                    })
+                    onClick = onCreateNewAccount
+                )
             }
         }
     }
