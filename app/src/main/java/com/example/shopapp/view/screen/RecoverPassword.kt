@@ -43,17 +43,23 @@ import com.example.shopapp.view.component.DefaultAppTextField
 
 @Preview
 @Composable
-fun RecoverPassword(modifier: Modifier = Modifier,
-                    onBackButton: ()-> Unit={}
-                    ) {
+fun RecoverPasswordScreen(
+    modifier: Modifier = Modifier,
+    onBackButton: () -> Unit = {},
+    onRecoverPassword: () -> Unit ={}
+    ) {
     Scaffold(
         topBar = {
-            Box (modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = 18.dp, top = 18.dp), contentAlignment = Alignment.CenterStart){
-                DefaultAppBackButton (onClick = onBackButton)}
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 18.dp, top = 18.dp), contentAlignment = Alignment.CenterStart
+            ) {
+                DefaultAppBackButton(onClick = onBackButton)
+            }
         },
-        modifier = modifier.fillMaxSize()) {
+        modifier = modifier.fillMaxSize()
+    ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
@@ -88,49 +94,58 @@ fun RecoverPassword(modifier: Modifier = Modifier,
             )
             Spacer(modifier = Modifier.height(50.dp))
             DefaultAppButton(
-                text = stringResource(id = R.string.label_button_sign_in),
-                onClick = { /*TODO*/ })
+                text = stringResource(id = R.string.label_button_recover_page),
+                onClick = onRecoverPassword)
 //            DialogResult()
         }
     }
 }
 
 @Composable
-fun DialogResult(modifier: Modifier = Modifier){
+fun DialogResult(modifier: Modifier = Modifier) {
     Dialog(onDismissRequest = { /*TODO*/ }) {
-        Box (
+        Box(
             modifier = modifier
                 .clip(shape = RoundedCornerShape(12))
                 .background(Color.White)
                 .padding(horizontal = 25.dp, vertical = 16.dp),
             contentAlignment = Alignment.Center
-        ){
+        ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Box(
                     modifier = Modifier
-                        .padding(top=10.dp)
+                        .padding(top = 10.dp)
                         .clip(RoundedCornerShape(50.dp))
                         .background(Blue)
                         .padding(10.dp)
                 ) {
-                    Image(painter = painterResource(id = R.drawable.email), contentDescription = Icons.Default.Email.name,
-                    modifier = Modifier.size(25.dp)
+                    Image(
+                        painter = painterResource(id = R.drawable.email),
+                        contentDescription = Icons.Default.Email.name,
+                        modifier = Modifier.size(25.dp)
                     )
 
 
                 }
                 Spacer(modifier = Modifier.height(20.dp))
-                Text(text = stringResource(id = R.string.title_dialog_recover_page), style = MaterialTheme.typography.headlineSmall.copy(
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold
-                ))
+                Text(
+                    text = stringResource(id = R.string.title_dialog_recover_page),
+                    style = MaterialTheme.typography.headlineSmall.copy(
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
+                )
                 Spacer(modifier = Modifier.height(5.dp))
-                Text(text = stringResource(id = R.string.subtitle_dialog_recover_page), style = MaterialTheme.typography.bodyLarge.copy(
-                    color = LightGrey,
-                    lineHeight = 19.sp
-                ), textAlign = TextAlign.Center)
+                Text(
+                    text = stringResource(id = R.string.subtitle_dialog_recover_page),
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        color = LightGrey,
+                        lineHeight = 19.sp
+                    ),
+                    textAlign = TextAlign.Center
+                )
 
             }
         }

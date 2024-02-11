@@ -44,7 +44,18 @@ fun MainApp(navController: NavHostController = rememberNavController()) {
                 })
         }
         composable(route = Screen.RecoverPasswordScreen.route) {
-            RecoverPassword(
+            RecoverPasswordScreen(
+                onRecoverPassword = {
+                    navController.navigate(route = Screen.OTPVerificationScreen.route)
+                },
+                onBackButton = {
+                    navController.popBackStack()
+
+                }
+            )
+        }
+        composable(route = Screen.OTPVerificationScreen.route) {
+            OTPVerificationScreen(
                 onBackButton = {
                     navController.popBackStack()
 
