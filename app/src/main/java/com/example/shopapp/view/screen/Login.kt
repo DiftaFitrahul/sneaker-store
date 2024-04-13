@@ -56,9 +56,8 @@ import com.example.shopapp.view.component.DefaultAppTextField
 fun LoginScreen(modifier: Modifier = Modifier,
                 onRecoverPassword: ()-> Unit={},
                 onCreateNewAccount: (Int) -> Unit = {}) {
-
-
     Scaffold(
+
         modifier = modifier.fillMaxSize()
     ) {
         Column(

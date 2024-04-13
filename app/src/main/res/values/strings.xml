@@ -3,7 +3,7 @@
     <!--  App Name  -->
     <string name="app_name">Sneaker Shop</string>
 
-    <!-- Define Text For Auth Page -->
+    <!-- Define Text For Auth Screen -->
     <string name="title_sign_in">Hello Again!</string>
     <string name="title_sign_up">Register Account</string>
     <string name="subtitle_auth">Fill Your Detail or Continue with Social Media</string>
@@ -20,16 +20,16 @@
     <string name="label_login">Login</string>
     <string name="placeholder_name">xxxxxxxxx</string>
     <string name="placeholder_email">xyz@gmail.com</string>
-    <string name="placeholder_password">••••••••••</string>
+    <string name="placeholder_password" translatable="false">••••••••••</string>
 
-    <!--  Define Text For Recover Page  -->
+    <!--  Define Text For Recover Screen  -->
     <string name="title_recover_page">Forgot Password</string>
     <string name="subtitle_recover_page">Enter Your Email Account To Reset Your Password</string>
     <string name="label_button_recover_page">Reset Password</string>
     <string name="title_dialog_recover_page">Check Your Email</string>
     <string name="subtitle_dialog_recover_page">We Have Send Password Recovery Code In Your Email</string>
 
-    <!--  Define Text For OTP Verification Page  -->
+    <!--  Define Text For OTP Verification Screen  -->
     <string name="title_OTP_verification_page">OTP Verification</string>
     <string name="subtitle_OTP_verification_page">Please Check Your Email To See The Verification Code</string>
     <string name="label_OTP_code_field">OTP Code</string>
@@ -39,6 +39,17 @@
     <string name="subtitle_success_dialog_OTP_verification_page">Your Password successfully change!!</string>
     <string name="title_failed_dialog_OTP_verification_page">Failed Reset Password</string>
     <string name="subtitle_failed_dialog_OTP_verification_page">Something wrong happen, Try Again!!</string>
+
+    <!--  Define Text For Home Page-->
+    <string name="title_app_bar_home_screen">Explore</string>
+    <string name="placeholder_search_bar_home_screen">Looking for shoes</string>
+    <string name="select_category_home_screen">Select Category</string>
+    <string name="select_all_category_home_screen">All Shoes</string>
+    <string name="select_outdoor_category_home_screen">Outdoor</string>
+    <string name="select_tennis_category_home_screen">Tennis</string>
+    <string name="popular_shoes_home_screen">Popular Shoes</string>
+    <string name="new_arrivals_home_screen">New Arrivals</string>
+    <string name="see_all_text">See all</string>
 
 
 
