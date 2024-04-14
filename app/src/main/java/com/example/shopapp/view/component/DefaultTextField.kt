@@ -38,8 +38,15 @@ fun DefaultAppTextField(
     onValueChange: (String) -> Unit,
     isError: Boolean = false,
     trailingIcon: @Composable() (() -> Unit)? = null,
+    leadingIcon: @Composable() (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions { },
-    keyboardOptions: KeyboardOptions = KeyboardOptions()
+    keyboardOptions: KeyboardOptions = KeyboardOptions(),
+    focusedContainerColor : Color = LightGrey.copy(
+        alpha = 0.1f
+    ),
+    unfocusedContainerColor : Color = LightGrey.copy(
+        alpha = 0.1f
+    ),
 
 ) {
     Column {
@@ -65,15 +72,10 @@ fun DefaultAppTextField(
                     )
                 )
             },
-
             shape = RoundedCornerShape(14.dp),
             colors = TextFieldDefaults.colors(
-                focusedContainerColor = LightGrey.copy(
-                    alpha = 0.1f
-                ),
-                unfocusedContainerColor = LightGrey.copy(
-                    alpha = 0.1f
-                ),
+                focusedContainerColor = focusedContainerColor,
+                unfocusedContainerColor = unfocusedContainerColor,
                 focusedTextColor = Color.Transparent,
                 unfocusedTextColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent,
@@ -82,6 +84,7 @@ fun DefaultAppTextField(
             ),
             visualTransformation = if (isSecureText) PasswordVisualTransformation() else VisualTransformation.None,
             trailingIcon = trailingIcon,
+            leadingIcon = leadingIcon,
             keyboardActions = keyboardActions,
             keyboardOptions = keyboardOptions
 
