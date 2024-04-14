@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -31,6 +32,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -62,7 +64,9 @@ import com.example.shopapp.Greeting
 import com.example.shopapp.R
 import com.example.shopapp.ui.theme.Blue
 import com.example.shopapp.ui.theme.ShopAppTheme
+import com.example.shopapp.view.component.CornerTypeComposableCard
 import com.example.shopapp.view.component.DefaultAppTextField
+import com.example.shopapp.view.component.ShoesSellCard
 
 @Composable
 fun HomeTopBar(
@@ -148,24 +152,21 @@ fun HomeScreen(){
         Column(
             modifier = Modifier
                 .padding(it)
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = 18.dp)
                 .fillMaxSize(),
             horizontalAlignment = Alignment.Start
         ) {
-        SearchBarShoes(
-            value = "",
-            onValueChange = {
-
-            },
-            onDone = {
-
-            }
-        )
+            SearchBarShoes(
+                value = "",
+                onValueChange = {},
+                onDone = {}
+            )
             CategorySection(
                 onCategorySelected = {
                 Log.d("Selected Category", it)
                 }
             )
+            PopularShoesSection()
         }
     }
 }
@@ -195,7 +196,7 @@ fun SearchBarShoes(
         value = "",
         onValueChange = onValueChange,
         leadingIcon = {
-                      Icon(imageVector = Icons.Filled.Search, contentDescription = "Search_bar")
+            Icon(imageVector = Icons.Filled.Search, contentDescription = "Search_bar")
         },
         placeHolder = stringResource(id = R.string.placeholder_search_bar_home_screen),
         focusedContainerColor = Color.White,
@@ -232,7 +233,7 @@ fun CategorySection(
             listCategory.map { Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(8.dp))
-                    .background( if(selectedCategory == it) Blue else Color.White)
+                    .background(if (selectedCategory == it) Blue else Color.White)
                     .padding(vertical = 10.dp)
                     .width(110.dp)
                     .clickable {
@@ -247,6 +248,41 @@ fun CategorySection(
                 ))
             } }
         }
+    }
+}
+
+@Composable
+fun PopularShoesSection(){
+    Column(
+
+        modifier = Modifier
+            .wrapContentHeight()
+
+    ) {
+        Row (
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ){
+            Text(text = stringResource(id = R.string.popular_shoes_home_screen))
+            TextButton(onClick = { /*TODO*/ }) {
+                Text(text = stringResource(id = R.string.see_all_text))
+            }
+        }
+        Spacer(modifier = Modifier.height(10.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            ShoesSellCard(
+                name = "Nike Jordan"
+            )
+            ShoesSellCard(
+                name = "Nike Miami",
+//                cornerTypeComposableCard = CornerTypeComposableCard.Color
+            )
+        }
+
     }
 }
 
